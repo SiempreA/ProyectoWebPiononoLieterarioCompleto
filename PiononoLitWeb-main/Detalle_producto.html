@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo</title>
+    <link rel="stylesheet" href="Detalle_producto.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo"><img src="image/logo_pl.png" alt="logo"></a>
+        <ul class="navmenu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="contactenos.html">Contáctenos</a></li>
+        </ul>
+        <div class="nav-icon">
+            <a href="login.html"><i class='bx bx-user'></i></a>
+            <a href="#"><i class='bx bxs-cart'></i></a>
+        </div>
+    </header>
+
+    <section class="banner">
+        <img src="image/Catalogo.png" alt="Banner catálogo"> 
+    </section>
+
+    <section class="inicio-productos" id="productos">
+        <main>
+
+<!-- Imagen del producto que se está mostrando -->
+            <div class="container-img">
+                <img src="image/postIt_largos.jpg" alt="imagen-producto"/>
+            </div>
+<!--  -->
+
+            <div class="container-info-product">
+                <div class="container-price">
+                    <h1>
+                        Post it Largos    
+                    </h1>
+                    <span> S/.8.00 </span>
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+
+                <div class="container-details-product">
+                    <div class="form-group">
+                        <label for="colour">Modelo</label>
+                        <select name="colour" id="colour">
+                            <option disabled selected value="">Escoge una opción</option>
+                            <option value="rojo">Verdes selva</option>
+                            <option value="blanco">Morados</option>
+                            <option value="beige">Azules marinos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">Talla</label>
+                        <select name="size" id="size">
+                            <option disabled selected value="">Escoge una opción</option>
+                            <option value="40">40</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                        </select>
+                    </div>
+                    <button class="btn-clean">Limpiar</button>
+                </div>
+
+                <div class="container-add-cart">
+                    <div class="container-quantity">
+                        <input type="number" placeholder="1" value="1" min="1" class="input-quantity"/>
+                        <div class="btn-increment-decrement">
+                            <i class="fa-solid fa-chevron-up" id="increment"></i>
+                            <i class="fa-solid fa-chevron-down" id="decrement"></i>
+                        </div>
+                    </div>
+                    <button class="btn-add-to-cart">
+                        <i class="fa-solid fa-plus"></i>
+                        Añadir al carrito
+                    </button>
+                </div>
+
+                <div class="container-description">
+                    <div class="title-description">
+                        <h4>Descripción</h4>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="text-description">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam iure provident atque voluptatibus
+                            reiciendis quae rerum, maxime placeat enim cupiditate voluptatum, temporibus quis iusto. Enim eum qui
+                            delectus deleniti similique? Sint autem magni earum est dolorem saepe perferendis repellat ipsam
+                            laudantium cum assumenda quidem quam, vero similique? Iusto officiis quod blanditiis iste?
+                        </p>
+                    </div>
+                </div>
+
+                <div class="container-additional-information">
+                    <div class="title-additional-information">
+                        <h4>Información adicional</h4>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="text-additional-information hidden">
+                        <p>-----------</p>
+                    </div>
+                </div>
+
+                <div class="container-reviews">
+                    <div class="title-reviews">
+                        <h4>Reseñas</h4>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="text-reviews hidden">
+                        <p>-----------</p>
+                    </div>
+                </div>
+
+                <div class="container-social">
+                    <span>Compartir</span>
+                    <div class="container-buttons-social">
+                        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section class="container-related-products">
+            <h2>Productos Relacionados</h2>
+            <div class="card-list-products">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80" alt="producto-1"/>
+                    </div>
+                    <div class="info-card">
+                        <div class="text-product">
+                            <h3>Nike - Roshe Run</h3>
+                            <p class="category">Footwear, Sneakers</p>
+                        </div>
+                        <div class="price">$85.00</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80" alt="producto-1"/>
+                    </div>
+                    <div class="info-card">
+                        <div class="text-product">
+                            <h3>Nike - Roshe Run</h3>
+                            <p class="category">Footwear, Sneakers</p>
+                        </div>
+                        <div class="price">$85.00</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80" alt="producto-1"/>
+                    </div>
+                    <div class="info-card">
+                        <div class="text-product">
+                            <h3>Nike - Roshe Run</h3>
+                            <p class="category">Footwear, Sneakers</p>
+                        </div>
+                        <div class="price">$85.00</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1025&q=80" alt="producto-1"/>
+                    </div>
+                    <div class="info-card">
+                        <div class="text-product">
+                            <h3>Nike - Roshe Run</h3>
+                            <p class="category">Footwear, Sneakers</p>
+                        </div>
+                        <div class="price">$85.00</div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+    </section>
+
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section logo">
+                <div class="logo-container">
+                    <img src="image/logo_pl.png" alt="Logo">
+                    <p>Síguenos en:</p>
+                    <div class="social-icons">
+                        <a href="#" class="facebook"><i class='bx bxl-facebook-circle'></i></a>
+                        <a href="#" class="instagram"><i class='bx bxl-instagram-alt'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section links">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="Nosotros.html">Nosotros</a></li>
+                    <li><a href="contactenos.html">Contáctenos</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact">
+                <h3>Contáctenos</h3>
+                <ul>
+                    <li><a href="mailto:piononoliterario@gmail.com">piononoliterario@gmail.com</a></li>
+                    <li>51 966644026</li>
+                    <li>Horario de atención</li>
+                </ul>
+            </div>
+        </div>
+        <div class="derechos">
+            <p> <i class='bx bx-copyright'></i> 2024 Pionono Literario. Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script src="Detalle_producto.css"></script>
+
+    
+</body>
+</html>
