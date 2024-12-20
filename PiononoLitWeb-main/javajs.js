@@ -1,6 +1,3 @@
-
-
-
 // Elementos del DOM
 const addToCartButtons = document.querySelectorAll('.add-to-cart');
 const cart = document.getElementById('carrito');
@@ -94,6 +91,7 @@ cartItemsContainer.addEventListener('click', event => {
         }
     }
 });
+
 // Seleccionar el botón de "Pagar"
 const payButton = document.getElementById('pay-button');
 
@@ -101,4 +99,26 @@ const payButton = document.getElementById('pay-button');
 payButton.addEventListener('click', () => {
     // Redirigir a la página "detalle_carrito.html"
     window.location.href = 'detalle_carrito.html';
+});
+
+// Implementación de las preguntas frecuentes (FAQ)
+const faqButtons = document.querySelectorAll('.faq-question');
+
+faqButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Encuentra el contenedor del item de la pregunta
+        const faqItem = this.closest('.faq-item');
+        
+        // Si la pregunta ya está abierta, la cerramos
+        if (faqItem.classList.contains('active')) {
+            faqItem.classList.remove('active');
+        } else {
+            // Si no está abierta, primero cerramos todas las preguntas abiertas
+            document.querySelectorAll('.faq-item.active').forEach(openFaqItem => {
+                openFaqItem.classList.remove('active');
+            });
+            // Ahora abrimos la respuesta de la pregunta actual
+            faqItem.classList.add('active');
+        }
+    });
 });

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo"><img src="image/logo_pl.png" alt="logo"></a>
+    </header>
+
+    <!-- Formulario de Registro -->
+    <div class="container mt-5 mb-5">
+        <div class="header-morado">
+            <h1 class="mb-4 custom-title">Registro para Usuario Nuevo</h1>
+        <form id="registerForm">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 mb-3">
+                    <label for="nombre" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre completo">
+                </div>
+                <div class="col-xs-12 col-md-6 mb-3">
+                    <label for="paterno" class="form-label">Apellido Paterno</label>
+                    <input type="text" class="form-control" id="paterno" placeholder="Ingresa tu apellido paterno">
+                </div>
+                <div class="col-xs-12 col-md-6 mb-3">
+                    <label for="materno" class="form-label">Apellido Materno</label>
+                    <input type="text" class="form-control" id="materno" placeholder="Ingresa tu apellido materno">
+                </div>
+                <div class="col-xs-12 col-md-6 mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico">
+                </div>
+                <div class="col-xs-12 col-md-6 mb-3">
+                    <label for="telefono" class="form-label">Número de Teléfono</label>
+                    <input type="number" class="form-control" id="telefono" placeholder="Ingresa tu número de teléfono">
+                </div>
+                <div class="col-xs-12 col-md-6 mb-3">
+                    <label for="genero" class="form-label">Género</label>
+                    <select class="form-select" id="genero">
+                        <option selected>Selecciona tu género</option>
+                        <option value="male">Masculino</option>
+                        <option value="female">Femenino</option>
+                        <option value="other">Otro</option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-md-6 mb-3">
+                    <label for="nacimiento" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="nacimiento">
+                </div>
+                <div class="col-xs-12 col-md-6 mb-3">
+                    <label for="departamento" class="form-label">Departamento</label>
+                    <select class="form-select" id="departamento" onchange="mostrarDistritos()">
+                        <option selected>Selecciona tu departamento</option>
+                        <option value="lima">Lima</option>
+                        <option value="arequipa">Arequipa</option>
+                        <option value="cusco">Cusco</option>
+                        <option value="piura">Piura</option>
+                        <option value="trujillo">Trujillo</option>
+                        <option value="callao">Callao</option>
+                        <option value="junin">Junín</option>
+                        <option value="la-libertad">La Libertad</option>
+                        <option value="ancash">Áncash</option>
+                        <option value="huancavelica">Huancavelica</option>
+                        <option value="huanuco">Huánuco</option>
+                        <option value="pasco">Pasco</option>
+                        <option value="ucayali">Ucayali</option>
+                        <option value="madre-de-dios">Madre de Dios</option>
+                        <option value="loreto">Loreto</option>
+                        <option value="san-martin">San Martín</option>
+                        <option value="ayacucho">Ayacucho</option>
+                        <option value="apurimac">Apurímac</option>
+                        <option value="tacna">Tacna</option>
+                        <option value="moquegua">Moquegua</option>
+                        <option value="puno">Puno</option>
+                        <option value="cajamarca">Cajamarca</option>
+                        <option value="lambayeque">Lambayeque</option>
+                        <option value="tumbes">Tumbes</option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-md-6 mb-3">
+                    <label for="distrito" class="form-label">Distrito</label>
+                    <select class="form-select" id="distrito" style="display:none;">
+                        <option selected>Selecciona tu distrito</option>
+                    </select>
+                </div>
+                <div class="col-xs-12 mb-3">
+                    <label for="username" class="form-label">Nombre de Usuario</label>
+                    <input type="text" class="form-control" id="username" placeholder="Ingresa tu nombre de usuario">
+                </div>
+                <div class="col-xs-12 col-md-6 mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+                </div>
+                <div class="col-xs-12 col-md-6 mb-3">
+                    <label for="confirm" class="form-label">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="confirm" placeholder="Confirma tu contraseña">
+                </div>
+                <div class="col-xs-12 mb-3 ms-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="terminos">
+                    <label class="form-check-label" for="terminos">Acepto los términos y condiciones</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+    </div>
+    </div>
+
+    <script>
+        const distritosPorDepartamento = {
+                        lima: ["Lima", "Callao", "Miraflores", "San Isidro", "San Borja"],
+                        arequipa: ["Arequipa", "Cayma", "José Luis Bustamante y Rivero", "Yanahuara"],
+                        cusco: ["Cusco", "Santiago", "San Sebastián", "San Jerónimo"],
+                        piura: ["Piura", "Castilla", "Sullana", "Paita"],
+                        trujillo: ["Trujillo", "La Esperanza", "El Porvenir", "Florencia de Mora"],
+                        callao: ["Callao", "La Perla", "Bellavista", "La Punta", "Ventanilla"],
+                        junin: ["Huancayo", "El Tambo", "Concepción", "Jauja"],
+                        "la-libertad": ["Trujillo", "Otuzco", "Julcán", "Chepén"],
+                        ancash: ["Huaraz", "Chimbote", "Caraz", "Casma"],
+                        huancavelica: ["Huancavelica", "Acobamba", "Angaraes"],
+                        huanuco: ["Huánuco", "Tingo María", "La Unión"],
+                        pasco: ["Cerro de Pasco", "Oxapampa", "Villa Rica"],
+                        ucayali: ["Pucallpa", "Yarinacocha", "Manantay"],
+                        "madre-de-dios": ["Puerto Maldonado", "Tambopata", "Manu"],
+                        loreto: ["Iquitos", "Nauta", "Requena"],
+                        "san-martin": ["Tarapoto", "Moyobamba", "Juanjuí"],
+                        ayacucho: ["Ayacucho", "Huanta", "Cangallo"],
+                        apurimac: ["Abancay", "Andahuaylas", "Cotabambas"],
+                        tacna: ["Tacna", "Alto de la Alianza", "Ciudad Nueva"],
+                        moquegua: ["Moquegua", "Ilo", "Torata"],
+                        puno: ["Puno", "Juliaca", "Azángaro"],
+                        cajamarca: ["Cajamarca", "Jaén", "Cutervo"],
+                        lambayeque: ["Chiclayo", "Lambayeque", "Ferreñafe"],
+                        tumbes: ["Tumbes", "Zarumilla", "Aguas Verdes"]
+                    };
+        function mostrarDistritos() {
+            const departamento = document.getElementById("departamento").value;
+            const distrito = document.getElementById("distrito");
+            
+            // Limpiar opciones anteriores
+            distrito.innerHTML = '<option selected>Selecciona tu distrito</option>';
+            
+            if (distritosPorDepartamento[departamento]) {
+                distritosPorDepartamento[departamento].forEach(d => {
+                    const option = document.createElement("option");
+                    option.value = d.toLowerCase();
+                    option.textContent = d;
+                    distrito.appendChild(option);
+                });
+                distrito.style.display = "block";
+            } else {
+                distrito.style.display = "none";
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

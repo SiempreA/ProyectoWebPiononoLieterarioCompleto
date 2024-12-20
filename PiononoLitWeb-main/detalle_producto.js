@@ -1,24 +1,35 @@
-// Elementos para la cantidad
+// Selección de elementos para la cantidad
 const inputQuantity = document.querySelector('.input-quantity');
 const btnIncrement = document.querySelector('#increment');
 const btnDecrement = document.querySelector('#decrement');
 
-// Variable para el valor por defecto
-let valueByDefault = parseInt(inputQuantity.value);
+// Inicializar el valor por defecto
+let valueByDefault = parseInt(inputQuantity.value, 10) || 1;
 
-// Funciones para incrementar y decrementar la cantidad
-btnIncrement.addEventListener('click', () => {
-	valueByDefault += 1;
-	inputQuantity.value = valueByDefault;
-});
+// Función para actualizar el valor de cantidad en el input
+function updateQuantity(newValue) {
+    valueByDefault = Math.max(newValue, 1); // No permitir valores menores a 1
+    inputQuantity.value = valueByDefault;
+}
 
-btnDecrement.addEventListener('click', () => {
-	if (valueByDefault === 1) {
-		return;  // No permitir que el valor sea menor a 1
-	}
-	valueByDefault -= 1;
-	inputQuantity.value = valueByDefault;
-});
+// Eventos para incrementar y decrementar la cantidad
+btnIncrement?.addEventListener('click', () => updateQuantity(valueByDefault + 1));
+btnDecrement?.addEventListener('click', () => updateQuantity(valueByDefault - 1));
+
+// Función genérica para alternar contenido
+function toggleContent(element) {
+    const content = element.nextElementSibling;
+    if (!content) return; // Salir si no hay un elemento siguiente
+
+    content.classList.toggle('hidden');
+
+    // Cambiar el ícono
+    const icon = element.querySelector('i');
+    if (icon) {
+        icon.classList.toggle('fa-chevron-up', !content.classList.contains('hidden'));
+        icon.classList.toggle('fa-chevron-down', content.classList.contains('hidden'));
+    }
+}
 
 // Elementos para el toggle de secciones
 const toggleDescription = document.querySelector('.title-description');
@@ -42,3 +53,4 @@ toggleAdditionalInformation.addEventListener('click', () => {
 toggleReviews.addEventListener('click', () => {
 	contentReviews.classList.toggle('hidden');
 });
+

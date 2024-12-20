@@ -6,18 +6,15 @@
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <a href="index.html" class="logo"><img src="image/logo_pl.png" alt="logo"></a>
         <ul class="navmenu">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="catalago.html">Cataálogo</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
             <li><a href="Nosotros.html">Nosotros</a></li>
             <li><a href="contactenos.html">Contáctenos</a></li>
         </ul>
@@ -29,7 +26,7 @@
 
     <section class="log">
         <h1>Acceder</h1>
-        <form action="/ruta-del-backend" method="POST">
+        <form id="loginForm">
             <div>
                 <label for="usuario">Usuario o correo electrónico</label>
                 <input type="text" id="usuario" name="usuario" required placeholder="Ingresa tu usuario o correo">
@@ -40,24 +37,44 @@
             </div>
             <button type="submit">Acceder</button>
         </form>
+        <a href="registro.html"><button id="registerButton">Registrarse</button></a>
     </section>
+
+    <script>
+        // Lista de usuarios y contraseñas válidos
+        const validUsers = [
+            { username: "pt75542735@idat.edu.pe", password: "1234" },
+            { username: "admin", password: "contraseña" },
+            { username: "profesor@gmail.com", password: "12345" }
+        ];
+
+        // Manejar el evento de envío del formulario de login
+        document.getElementById("loginForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const userInput = document.getElementById("usuario").value;
+            const passwordInput = document.getElementById("contraseña").value;
+
+            const userFound = validUsers.find(user => user.username === userInput && user.password === passwordInput);
+
+            if (userFound) {
+                window.location.href = "index.html";
+            } else {
+                alert("Usuario o contraseña incorrectos.");
+            }
+        });
+    </script>
 
     <footer>
         <div class="footer-container">
-            <!-- Logo y redes sociales -->
             <div class="footer-section logo">
-                <div class="logo-container">
-                    <img src="image/logo_pl.png" alt="">
-                
+                <img src="image/logo_pl.png" alt="">
                 <p>Síguenos en:</p>
-                    <div class="social-icons">
-                        <a href="#" class="facebook"><i class='bx bxl-facebook-circle' ></i></a>
-                        <a href="#" class="instagram"><i class='bx bxl-instagram-alt'></i></a>
-                    </div>
+                <div class="social-icons">
+                    <a href="#" class="facebook"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="#" class="instagram"><i class='bx bxl-instagram-alt'></i></a>
+                </div>
             </div>
-            </div>
-
-            <!-- Links -->
             <div class="footer-section links">
                 <h3>Links</h3>
                 <ul>
@@ -67,8 +84,6 @@
                     <li><a href="#">Contáctenos</a></li>
                 </ul>
             </div>
-
-            <!-- Contacto -->
             <div class="footer-section contact">
                 <h3>Contáctenos</h3>
                 <ul>
@@ -79,10 +94,8 @@
             </div>
         </div>
         <div class="derechos">
-            <p> <i class='bx bx-copyright' ></i> 2024 Pionono Literario. All rights reverved</p>
+            <p><i class='bx bx-copyright'></i> 2024 Pionono Literario. All rights reserved</p>
         </div>
     </footer>
-    <script src="javajs.js"></script>
-    
 </body>
 </html>

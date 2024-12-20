@@ -3,25 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactenos</title>
+    <title>Contáctenos</title>
     <link rel="stylesheet" href="contactenos.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
+    <style>
+        /* Mensaje de confirmación oculto por defecto */
+        .mensaje-enviado {
+            display: none;
+            margin-top: 20px;
+            color: #4CAF50; /* Verde */
+            font-weight: bold;
+            text-align: center;
+        }
 
+        /* Botón con estilo */
+        button {
+            background-color: #0078ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Encabezado -->
     <header>
         <a href="index.html" class="logo"><img src="image/logo_pl.png" alt="logo"></a>
         <ul class="navmenu">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="catalago.html">Catálogo</a></li>
-            <li><a href="Nosotros.html">Nosotros</a></li>
-            <li><a href="contactenos.html">Contáctenos</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contactenos.html">Contáctenos</a></li>      
         </ul>
         <div class="nav-icon">
             <a href="login.html"><i class='bx bx-user'></i></a>
@@ -29,16 +52,18 @@
         </div>
     </header>
 
+    <!-- Sección de contacto -->
     <section class="cont">
         <div class="header">
-            <h1>Contactenos</h1>
-            <p>Si deseas obtener más información sobre nuestros productos, no dudes en enviarnos un correo electrónico. Nuestro personal siempre estará allí para ayudarte. </p>
+            <h1>Contáctenos</h1>
+            <p>Si deseas obtener más información sobre nuestros productos, no dudes en enviarnos un correo electrónico. Nuestro personal siempre estará allí para ayudarte.</p>
         </div>
         <div class="content">
             <div class="logoimg">
-                <img src="image/logo_pl.png" alt="">
+                <img src="image/paraContactanos.png" alt="">
             </div>
-            <form action="/ruta-del-backend" method="POST">
+            <!-- Formulario -->
+            <form id="contactForm">
                 <div>
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre">
@@ -56,30 +81,28 @@
                     <input type="text" id="mensaje" name="mensaje" required placeholder="Ingresa el mensaje">
                 </div>
                 <button type="submit">Acceder</button>
+                <!-- Mensaje de confirmación -->
+                <p id="mensajeEnviado" class="mensaje-enviado">Mensaje enviado.</p>
             </form>
         </div>
     </section>
-    
 
-    
+    <!--- Wpp---->
+        <a id="whatsapp" href="https://wa.link/zdssoq"><img src="image/WhatsApp_icon.png" alt=""></a>
 
-
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <!-- Logo y redes sociales -->
             <div class="footer-section logo">
                 <div class="logo-container">
                     <img src="image/logo_pl.png" alt="">
-                
-                <p>Síguenos en:</p>
+                    <p>Síguenos en:</p>
                     <div class="social-icons">
-                        <a href="#" class="facebook"><i class='bx bxl-facebook-circle' ></i></a>
+                        <a href="#" class="facebook"><i class='bx bxl-facebook-circle'></i></a>
                         <a href="#" class="instagram"><i class='bx bxl-instagram-alt'></i></a>
                     </div>
+                </div>
             </div>
-            </div>
-
-            <!-- Links -->
             <div class="footer-section links">
                 <h3>Links</h3>
                 <ul>
@@ -89,8 +112,6 @@
                     <li><a href="#">Contáctenos</a></li>
                 </ul>
             </div>
-
-            <!-- Contacto -->
             <div class="footer-section contact">
                 <h3>Contáctenos</h3>
                 <ul>
@@ -101,9 +122,21 @@
             </div>
         </div>
         <div class="derechos">
-            <p> <i class='bx bx-copyright' ></i> 2024 Pionono Literario. All rights reverved</p>
+            <p><i class='bx bx-copyright'></i> 2024 Pionono Literario. All rights reserved</p>
         </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const mensajeEnviado = document.getElementById('mensajeEnviado');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            mensajeEnviado.style.display = 'block'; 
+            form.reset(); 
+        });
+    </script>
 
 </body>
 </html>

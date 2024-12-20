@@ -178,7 +178,26 @@ header {
 }
 
 
+/*whatsapp*/
+#whatsapp {
+    position: fixed;
+    bottom: 20px;  /* Asegura que esté en la parte inferior */
+    right: 20px;   /* Colócalo a la derecha */
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+    width: 50px;   /* Ajusta el tamaño del botón */
+    height: 50px;  /* Ajusta el tamaño del botón */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+#whatsapp img {
+    width: 100%;    /* Asegura que la imagen no sea más grande que el contenedor */
+    height: 100%;   /* Asegura que la imagen no sea más alta que el contenedor */
+    object-fit: contain;  /* Hace que la imagen se ajuste sin deformarse */
+}
+
+    
 
 
 /* footer */
